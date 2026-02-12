@@ -1,4 +1,4 @@
-# tex2pdf
+![tex2pdf](./assets/tex2pdf%20logo.png)
 
 Convert TeX files to PDF with zero setup.
 
@@ -22,11 +22,11 @@ npm install -g tex2pdf
 tex2pdf document.tex [output.pdf] [--engine=ENGINE]
 ```
 
-| Option | Description |
-|--------|-------------|
+| Option            | Description                                               |
+| ----------------- | --------------------------------------------------------- |
 | `--engine=ENGINE` | LaTeX engine: `xelatex` (default), `pdflatex`, `lualatex` |
-| `--install` | Force reinstall TinyTeX |
-| `--help` | Show help |
+| `--install`       | Force reinstall TinyTeX                                   |
+| `--help`          | Show help                                                 |
 
 ## License
 
