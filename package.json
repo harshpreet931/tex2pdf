@@ -1,6 +1,6 @@
 {
   "name": "tex2pdf",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Convert TeX files to PDF with zero setup - auto-installs LaTeX if needed",
   "main": "cli.js",
   "bin": {
