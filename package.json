@@ -1,0 +1,47 @@
+{
+  "name": "tex2pdf-cli",
+  "version": "1.0.0",
+  "description": "Convert TeX files to PDF with zero setup - auto-installs LaTeX if needed",
+  "main": "cli.js",
+  "bin": {
+    "tex2pdf": "./cli.js"
+  },
+  "files": [
+    "cli.js",
+    "find-latex.js",
+    "install-latex.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "postinstall": "node install-latex.js || true",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tex",
+    "latex",
+    "pdf",
+    "converter",
+    "cli",
+    "npx",
+    "tinytex",
+    "zero-setup"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/tex2pdf-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/tex2pdf-cli/issues"
+  },
+  "homepage": "https://github.com/yourusername/tex2pdf-cli#readme",
+  "dependencies": {
+    "node-latex": "^3.1.0",
+    "tar": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
