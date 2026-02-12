@@ -1,0 +1,9 @@
+node_modules/
+.tinytex/
+*.pdf
+*.log
+*.aux
+*.out
+*.tar.gz
+*.tgz
+.DS_Store
