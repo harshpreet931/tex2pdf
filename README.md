@@ -1,11 +1,11 @@
-# tex2pdf-cli
+# tex2pdf
 
 Convert TeX files to PDF with zero setup.
 
 ## Usage
 
 ```bash
-npx tex2pdf-cli document.tex
+npx tex2pdf document.tex
 ```
 
 LaTeX is automatically installed on first use (~200MB download).
@@ -13,7 +13,7 @@ LaTeX is automatically installed on first use (~200MB download).
 ## Installation
 
 ```bash
-npm install -g tex2pdf-cli
+npm install -g tex2pdf
 ```
 
 ## Options
