@@ -184,14 +184,35 @@ async function installTinyTeXUnix() {
 }
 
 async function installTinyTeXWindows() {
-  log('Windows installation requires manual steps or Chocolatey');
-  log('Please install TinyTeX using one of these methods:');
-  log('  1. choco install tinytex');
-  log('  2. scoop install tinytex');
-  log('  3. Download from https://github.com/rstudio/tinytex-releases');
-  log('');
-  log('Or use WSL (Windows Subsystem for Linux) for automatic installation');
-  return false;
+  const url = 'https://github.com/rstudio/tinytex-releases/releases/download/daily/TinyTeX.zip';
+  const zipPath = path.join(__dirname, `tinytex-${Date.now()}.zip`);
+
+  try {
+    await downloadFile(url, zipPath);
+
+    log('Extracting TinyTeX...');
+    if (!fs.existsSync(INSTALL_DIR)) {
+      fs.mkdirSync(INSTALL_DIR, { recursive: true });
+    }
+
+    const { execSync } = require('child_process');
+    execSync(`powershell -command "Expand-Archive -Path '${zipPath}' -DestinationPath '${INSTALL_DIR}' -Force"`, { stdio: 'ignore' });
+    
+    fs.unlinkSync(zipPath);
+    fixTinyTeXSymlinks();
+
+    return true;
+  } catch (error) {
+    log(`Error installing TinyTeX: ${error.message}`);
+    log('Falling back to manual installation instructions:');
+    log('  1. choco install tinytex');
+    log('  2. scoop install tinytex');
+    log('  3. Download from https://github.com/rstudio/tinytex-releases');
+    if (fs.existsSync(zipPath)) {
+      fs.unlinkSync(zipPath);
+    }
+    return false;
+  }
 }
 
 async function installTinyTeX() {
